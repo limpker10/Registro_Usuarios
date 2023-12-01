@@ -14,6 +14,4 @@ router.post('/signup', signup);
 
 router.get('/signin', renderSigninForm);
 
-router.post('/filter', filterUsuarios);
-
 module.exports = router;

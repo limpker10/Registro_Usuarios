@@ -11,9 +11,14 @@ const indexRoutes = require('./routes/index.routes');
 const userRoutes = require('./routes/auth.routes');
 // Módulo de Node.js para trabajar con rutas de archivos
 const path = require('path');
+const bodyParser = require('body-parser');
 
 // Inicializaciones
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 // Configuraciones de la aplicación
 app.set('port', process.env.PORT || 3000);

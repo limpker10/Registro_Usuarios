@@ -1,5 +1,8 @@
-// Función para renderizar el formulario de registro
+// authController.js
+const userService = require('../services/userService');
+
 const renderSignUpForm = (req, res) => res.render('auth/signup');
+
 // Array donde se guardaran los datos
 const usuarios = [];
 // Función para el proceso de registro
@@ -31,6 +34,7 @@ const signup = async (req, res) => {
     }
   }
 
+
   if (errors.length > 0) {
     return res.render('auth/signup', {
       errors,
@@ -48,6 +52,7 @@ const signup = async (req, res) => {
       confirmarContrasena,
     });
   }
+
   // Pusheo de los datos del usuario al array
   const nuevoUsuario = {
     nombre,
@@ -64,13 +69,12 @@ const signup = async (req, res) => {
   };
   usuarios.push(nuevoUsuario);
   // Redirigir al formulario de inicio de sesión tras un registro exitoso
+
   res.redirect('/auth/signin');
 };
 
-// Función para renderizar el formulario de inicio de sesión
 const renderSigninForm = (req, res) => res.render('auth/signin');
 
-// Exportando las funciones
 module.exports = {
   renderSignUpForm,
   signup,

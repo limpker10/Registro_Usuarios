@@ -37,10 +37,10 @@ app.set('view engine', '.hbs'); // Establecer Handlebars como motor de vistas
 
 /*******************  Rutas   ******************************/
 app.use(indexRoutes); // Uso de rutas de la página de inicio
-app.use(userRoutes); // Uso de rutas de autenticación de usuarios
+app.use('/auth',userRoutes); // Uso de rutas de autenticación de usuarios
 
 /*******************  Archivos Estaticos   ******************************/
-app.use(express.static('public')); // Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static('public')); // archivos estáticos desde la carpeta 'public'
 
 /*******************  Manejo de Errores   ******************************/
 // Error 404

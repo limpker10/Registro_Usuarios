@@ -24,11 +24,11 @@ const signup = async (req, res) => {
   // variable para la verificacion de la contraseña
   var verificacionContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&]{8,}$/;
   // Estados
-  if (estado == true){
-    estado = Activado;
-  }else{
-    estado = Desactivado;
-  }
+  // if (estado == true){
+  //   estado = Activado;
+  // }else{
+  //   estado = Desactivado;
+  // }
   // variables principales
   const { nombre, apellido, numeroDeCelular, departamento, provincia, distrito, direccionExacta, email, tipoDeDocumento, numeroDeDocumento, contrasena, confirmarContrasena } = req.body;
 //validaciones
@@ -36,7 +36,7 @@ const signup = async (req, res) => {
     errors.push({ text: 'Todos los campos deben ser llenados' });
   } else {
     if (numeroDeCelular.length < 9 || numeroDeCelular.length > 9) {
-      errors.push({ text: 'El numero de cleular debe tener 9 digitos' });
+      errors.push({ text: 'El numero de celular debe tener 9 digitos' });
     } else {
       if (verificacionContrasena.test(contrasena)) {
         if (contrasena !== confirmarContrasena) {
@@ -95,7 +95,7 @@ const signup = async (req, res) => {
                 }
               }
               if (!rucRepetido) {
-                console.log("No hay coincidencias, continuar con la lógica");
+                //console.log("No hay coincidencias, continuar con la lógica");
               }
             }
           }
@@ -145,9 +145,9 @@ const signup = async (req, res) => {
     fechaFormateada,
     estado
   };
-  usuarios.push(nuevoUsuario);
+  //Cambio por userService
+  await userService.addUser(nuevoUsuario);
   // Redirigir al formulario de inicio de sesión tras un registro exitoso
-
   res.redirect('/auth/signin');
 };
 

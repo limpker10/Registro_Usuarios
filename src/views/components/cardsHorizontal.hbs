@@ -8,12 +8,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{this.nombre}} , {{this.apellido}}</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><p class="card-text">{{this.correo}}</p></li>
-                    <li class="list-group-item"><p class="card-text">{{this.telefono}}</p></li>
-                    <li class="list-group-item"><p class="card-text">{{this.creacion_usuario}}</p></li>
-                    <li class="list-group-item"><p class="card-text">{{this.correo}}</p></li>
-
-                    {{#if this.estatus }}
+                    <li class="list-group-item"><p class="card-text" id="email">Email : {{this.email}}</p></li>
+                    <li class="list-group-item"><p class="card-text" id="cel">Cel : {{this.numeroDeCelular}}</p></li>
+                    <li class="list-group-item"><p class="card-text" id="direccion">Direccion : {{this.direccionExacta}} / {{this.provincia}}</p></li>
+                    <li class="list-group-item"><p class="card-text text-info" id="creacion">{{this.fechaFormateada}}</p></li>
+                    {{#if this.estado }}
                         <button type="button" class="btn btn-primary" >Activado</button>
                     {{else}}
                         <button type="button" class="btn btn-danger" >Desactivado</button>

@@ -3,16 +3,12 @@ const userCards = document.querySelectorAll('[data-user-card]');
 const usersData = Array.from(userCards).map(card => {
     const nombreApellido = card.querySelector('h5.card-title').textContent.split(',');
     const p_card_text = card.querySelectorAll('p.card-text');
-    const correo = p_card_text[0].textContent;
-    const telefono = p_card_text[1].textContent;
-    const creacion_usuario= p_card_text[2].textContent;
+    const creacion_usuario= p_card_text[3].textContent;
     const estado = card.querySelector('button').textContent;
 
     return {
         nombre: nombreApellido[0].trim(),
         apellido: nombreApellido[1].trim(),
-        correo: correo.trim(),
-        telefono: telefono.trim(),
         creacion_usuario : creacion_usuario.trim(),
         estado : estado.trim()
     };
@@ -60,7 +56,6 @@ function filtersCards() {
 
 // funcionees auxiliares para verificar coincidencias
 function checkNameMatch(user, searchValue) {
-    console.log(user)
     return user.nombre.toLowerCase().includes(searchValue) || user.apellido.toLowerCase().includes(searchValue);
 }
 
@@ -80,7 +75,5 @@ function checkStatusMatch(user, status) {
     if (status === 'all') {
         return true;
     }
-    console.log(user)
-    console.log(status)
     return user === status;
 }

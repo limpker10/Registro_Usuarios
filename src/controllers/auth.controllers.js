@@ -20,9 +20,16 @@ const signup = async (req, res) => {
   const segundos = fechaActual.getSeconds();
   const horaFormateada = `${horas < 10 ? '0' : ''}${horas}:${minutos < 10 ? '0' : ''}${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
   const fechaFormateada = `${año}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
+  const estado = true;
   // variable para la verificacion de la contraseña
   var verificacionContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&]{8,}$/;
-
+  // Estados
+  if (estado == true){
+    estado = Activado;
+  }else{
+    estado = Desactivado;
+  }
+  // variables principales
   const { nombre, apellido, numeroDeCelular, departamento, provincia, distrito, direccionExacta, email, tipoDeDocumento, numeroDeDocumento, contrasena, confirmarContrasena } = req.body;
 //validaciones
   if (!email || !nombre || !apellido || !numeroDeCelular || !departamento || !provincia || !distrito || !direccionExacta || !tipoDeDocumento || !numeroDeDocumento || !contrasena || !confirmarContrasena) {
@@ -135,7 +142,8 @@ const signup = async (req, res) => {
     numeroDeDocumento,
     contrasena,
     horaFormateada,
-    fechaFormateada
+    fechaFormateada,
+    estado
   };
   usuarios.push(nuevoUsuario);
   // Redirigir al formulario de inicio de sesión tras un registro exitoso

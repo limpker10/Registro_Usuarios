@@ -4,7 +4,7 @@ const userService = require('../services/userService');
 const renderSignUpForm = (req, res) => res.render('auth/signup');
 
 // Array donde se guardaran los datos
-const usuarios = [];
+const usuarios = userService.getAuthSpecificData();
 
 // Función para el proceso de registro
 const signup = async (req, res) => {
@@ -13,7 +13,7 @@ const signup = async (req, res) => {
 
   // Obtener año, mes y día
   const año = fechaActual.getFullYear();
-  const mes = fechaActual.getMonth() + 1; 
+  const mes = fechaActual.getMonth() + 1;
   const dia = fechaActual.getDate();
   const horas = fechaActual.getHours();
   const minutos = fechaActual.getMinutes();
@@ -26,7 +26,7 @@ const signup = async (req, res) => {
 
   // variables principales
   const { nombre, apellido, numeroDeCelular, departamento, provincia, distrito, direccionExacta, email, tipoDeDocumento, numeroDeDocumento, contrasena, confirmarContrasena } = req.body;
-//validaciones
+  //validaciones
   if (!email || !nombre || !apellido || !numeroDeCelular || !departamento || !provincia || !distrito || !direccionExacta || !tipoDeDocumento || !numeroDeDocumento || !contrasena || !confirmarContrasena) {
     errors.push({ text: 'Todos los campos deben ser llenados' });
   } else {
@@ -42,7 +42,6 @@ const signup = async (req, res) => {
               errors.push({ text: 'El número de DNI tiene 8 digitos' });
             } else {
               let rucRepetido = false;
-
               for (let i = 0; i < usuarios.length; i++) {
                 console.log(numeroDeDocumento);
                 console.log(usuarios[i].numeroDeDocumento);
@@ -72,7 +71,7 @@ const signup = async (req, res) => {
             if (!rucRepetido) {
               console.log("No hay coincidencias, continuar con la lógica");
             }
-          } 
+          }
           if (tipoDeDocumento === "RUC") {
             if (numeroDeDocumento.length !== 11) {
               errors.push({ text: 'El número de RUC debe tener 11 dígitos' });
@@ -142,6 +141,7 @@ const signup = async (req, res) => {
   //Cambio por userService
   await userService.addUser(nuevoUsuario);
   // Redirigir al formulario de inicio de sesión tras un registro exitoso
+  res.redirect('/auth/signup');
 };
 
 const renderSigninForm = (req, res) => res.render('auth/signin');

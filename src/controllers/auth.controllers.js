@@ -23,12 +23,7 @@ const signup = async (req, res) => {
   const estado = true;
   // variable para la verificacion de la contraseña
   var verificacionContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&]{8,}$/;
-  // Estados
-  // if (estado == true){
-  //   estado = Activado;
-  // }else{
-  //   estado = Desactivado;
-  // }
+
   // variables principales
   const { nombre, apellido, numeroDeCelular, departamento, provincia, distrito, direccionExacta, email, tipoDeDocumento, numeroDeDocumento, contrasena, confirmarContrasena } = req.body;
 //validaciones

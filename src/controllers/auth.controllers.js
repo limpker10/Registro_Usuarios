@@ -4,7 +4,7 @@ const userService = require('../services/userService');
 const renderSignUpForm = (req, res) => res.render('auth/signup');
 
 // Array donde se guardaran los datos
-const usuarios = userService.getAuthSpecificData();
+const usuarios = userService.obtenerUsuarios();
 
 // Función para el proceso de registro
 const signup = async (req, res) => {
@@ -139,7 +139,7 @@ const signup = async (req, res) => {
     estado
   };
   //Cambio por userService
-  await userService.addUser(nuevoUsuario);
+  await userService.agregarUsuario(nuevoUsuario);
   // Redirigir al formulario de inicio de sesión tras un registro exitoso
   res.redirect('/auth/signup');
 };

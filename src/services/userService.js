@@ -18,16 +18,15 @@ let arrayUsuarios = [
     }
 ];
 
-function getAuthSpecificData() {
+function obtenerUsuarios() {
     return arrayUsuarios;
 }
-const addUser = async (userData) => {
+const agregarUsuario = async (userData) => {
     arrayUsuarios.push(userData);
 };
 
 
 module.exports = {
-    addUser,
-    arrayUsuarios,
-    getAuthSpecificData
+    agregarUsuario,
+    obtenerUsuarios
 };

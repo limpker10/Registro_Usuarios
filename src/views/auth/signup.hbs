@@ -9,13 +9,73 @@
       <div class="card-body">
         <form action="/auth/signup" method="POST">
           <div class="mb-3">
-            <label for="name">Name:</label>
+            <label for="nombre">Nombre:</label>
             <input
               type="text"
               class="form-control"
-              name="name"
-              placeholder="Name"
-              value="{{name}}"
+              name="nombre"
+              placeholder="Nombre"
+              value="{{nombre}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="apellido">Apellido:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="apellido"
+              placeholder="Apellido"
+              value="{{apellido}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="numeroDeCelular">Numero de Celular:</label>
+            <input
+              type="number"
+              class="form-control"
+              name="numeroDeCelular"
+              placeholder="Numero de celular"
+              value="{{numeroDeCelular}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="departamento">Departamento:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="departamento"
+              placeholder="departamento"
+              value="{{departamento}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="provincia">Provincia:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="provincia"
+              placeholder="provincia"
+              value="{{provincia}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="distrito">Distrito:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="distrito"
+              placeholder="Distrito"
+              value="{{distrito}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="direccionExacta">Direccion Exacta:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="direccionExacta"
+              placeholder="Direccion Exacta"
+              value="{{direccionExacta}}"
             />
           </div>
           <div class="mb-3">
@@ -29,23 +89,46 @@
             />
           </div>
           <div class="mb-3">
-            <label for="password">Password</label>
+            <label for="tipoDeDocumento">Tipo de documento</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="tipoDeDocumento"
+              value="{{tipoDeDocumento}}"
+            > 
+              <option value="DNI">DNI</option>
+              <option value="C.E">Carnet de extrangeria</option>
+              <option value="RUC">RUC</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="numeroDeDocumento">Numero de documento:</label>
             <input
-              type="password"
+              type="number"
               class="form-control"
-              name="password"
-              placeholder="Password"
-              value="{{password}}"
+              name="numeroDeDocumento"
+              placeholder="Numero de documento"
+              value="{{numeroDeDocumento}}"
             />
           </div>
           <div class="mb-3">
-            <label for="confirm_password">Cofirm Password:</label>
+            <label for="contrasena">Contraseña:</label>
             <input
               type="password"
               class="form-control"
-              name="confirm_password"
-              placeholder="Confirm Password"
-              value="{{confirm_password}}"
+              name="contrasena"
+              placeholder="Contraseña"
+              value="{{contrasena}}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="confirmarContraseña">Confirmar Contraseña:</label>
+            <input
+              type="password"
+              class="form-control"
+              name="confirmarContrasena"
+              placeholder="Confirmar Contraseña"
+              value="{{confirmarContrasena}}"
             />
           </div>
           <button class="btn btn-success btn-block">
@@ -53,7 +136,7 @@
           </button>
         </form>
       </div>
-      <p class="text-center">Already Have an Account?
+      <p class="text-center">¿Ya estas registrado?
         <a href="/auth/signin" class="text-info">Login</a></p>
     </div>
   </div>

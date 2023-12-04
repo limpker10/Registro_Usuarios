@@ -1,0 +1,25 @@
+{{#each usuarios}}
+<div class="card mb-3" data-user-card="{{ @index }}">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/img/user-5.jpg" class="img-fluid rounded-start" alt="..." style="height: 100%">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{this.nombre}} , {{this.apellido}}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><p class="card-text" id="email">Email : {{this.email}}</p></li>
+                    <li class="list-group-item"><p class="card-text" id="cel">Cel : {{this.numeroDeCelular}}</p></li>
+                    <li class="list-group-item"><p class="card-text" id="direccion">Direccion : {{this.direccionExacta}} / {{this.provincia}}</p></li>
+                    <li class="list-group-item"><p class="card-text text-info" id="creacion">{{this.fechaFormateada}}</p></li>
+                    {{#if this.estado }}
+                        <button type="button" class="btn btn-primary" >Activado</button>
+                    {{else}}
+                        <button type="button" class="btn btn-danger" >Desactivado</button>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

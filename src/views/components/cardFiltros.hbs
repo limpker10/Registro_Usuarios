@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center mt-4">
+    <form class="w-75 " id="filter-form">
+        <label for="fullNameSearch" class="form-label">Buscar por Nombre y Apellido</label>
+        <input class="form-control mr-sm-2" id="fullNameSearch" type="search" placeholder="Buscar" data-search>
+        <div class="row">
+            <!-- Input para Fecha de Inicio -->
+            <div class="col">
+                <label for="startDate" class="form-label">Fecha de Inicio</label>
+                <input type="date" id="startDate" class="form-control">
+            </div>
+
+            <!-- Input para Fecha de Fin -->
+            <div class="col">
+                <label for="endDate" class="form-label">Fecha de Fin</label>
+                <input type="date" id="endDate" class="form-control ">
+            </div>
+
+            <div class="col">
+                <label for="statusSelector" class="form-label">Estado</label>
+                <select id="statusSelector" class="form-select">
+                    <option value="all">Todos</option>
+                    <option value="Activado">Activado</option>
+                    <option value="Desactivado">Desactivado</option>
+                </select>
+            </div>
+
+        </div>
+    </form>
+</div>
